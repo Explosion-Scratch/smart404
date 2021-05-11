@@ -4,7 +4,7 @@ function smart404(app, {methods = ["GET"], distance = .8, status = 302, ignoreRo
 	methods = methods.map(i => i.trim().toLowerCase())
 	global[routesName] = global[routesName] || app.routes || app._router.stack || router.stack;
 	var routes = global[routesName]
-	var mroutes = global[routesName].filter(i => i.route).map(i => i.route).map(i => ({method: i.stack[0].method, path: i.path}));
+	var mroutes = global[routesName].filter(i => i.route && i.stack).map(i => i.route).map(i => ({method: i.stack[0].method, path: i.path}));
 	console.log(mroutes)
 	return (req, res, next) => {
 		console.log(mroutes);
