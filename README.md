@@ -11,3 +11,4 @@ app.use(smart404(app, {
   ignoreRoutes: [], //Ignore these routes
 }));//Must go BEFORE any other routes
 ```
+It's that simple!
